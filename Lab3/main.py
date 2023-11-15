@@ -1,7 +1,7 @@
 import cv2
 import numpy as np
 np.set_printoptions(threshold = np.inf)
-image_read = cv2.imread(r'images\Text.jpg')
+image_read = cv2.imread(r'images\apple.jpg')
 def bw_method(image):
     height, width, _ = image.shape
     image1 = np.zeros((height, width), dtype=np.uint8)
@@ -44,7 +44,7 @@ def dilation(image, kernel):
                 filtered_image[i, j] = 0
     return filtered_image
 
-def erosion(image, kernel):
+def erosian(image, kernel):
     image_height, image_width = image.shape
     kernel_height, kernel_width = kernel.shape
 
@@ -67,12 +67,14 @@ def erosion(image, kernel):
     return filtered_image
 def closing(image, kernel):
     img1 = dilation(image, kernel)
-    img2 = erosion(img1, kernel)
+    img2 = erosian(img1, kernel)
     return img2
 def opening(image, kernel):
-    img1 = erosion(image, kernel)
+    img1 = erosian(image, kernel)
     img2 = dilation(img1, kernel)
     return img2
+def limits(image, kernel):
+    return image ^ erosian(image, kernel)
 
 # test_image = np.array([[0,255,0,0,255,0],
 #                        [255,255,255,0,255,0],
@@ -94,14 +96,17 @@ def opening(image, kernel):
 image1 = bw_method(image_read)
 image = binarization_on_bw_image(image1)
 kernel = np.array([[0,255,0],
-                        [0,255,0],
-                        [0,255,0]])
+                   [0,255,0],
+                   [0,255,0]])
 dilation1 = dilation(image, kernel)
-erosion2 = erosion(image, kernel)
+erosion2 = erosian(image, kernel)
 closing3 = closing(image, kernel)
 opening4 = opening(image, kernel)
+limits5 = limits(image, kernel)
 
+cv2.imwrite(f'0original_image.jpg', image)
 cv2.imwrite(f'1dilation.jpg', dilation1)
 cv2.imwrite(f'2erosion.jpg', erosion2)
 cv2.imwrite(f'3closing.jpg', closing3)
 cv2.imwrite(f'4opening.jpg', opening4)
+cv2.imwrite(f'5limits.jpg', limits5)
