@@ -39,9 +39,6 @@ def filter(image, kernel):
             начинается с текущего значения i и продолжается до i + kernel_height - 1.
             'j: j + kernel_width' указывает диапазон столбцов для извлечения
             начинается с текущего значения j и продолжается до j + kernel_height - 1.
-            например первый патч: [[   0.   -0.    0.]
-                                   [  -0.  510. -179.]
-                                   [   0. -210.    0.]]
             """
             patch = padded_image[i:i + kernel_height, j:j + kernel_width]
             # print(np.column_stack((patch, kernel)))

@@ -59,7 +59,7 @@ def dilation(image, kernel):
     offset_y = differences[0]
     offset_x = differences[1]
 
-    result_kernel = result_kernel.astype(int) #не знаю почему без этого возвращает тип u32
+    result_kernel = result_kernel.astype(int)
 
     image_height, image_width = image.shape
     kernel_height, kernel_width = result_kernel.shape
