@@ -23,12 +23,12 @@ np.set_printoptions(threshold = np.inf)
 # test3 = m.closing(test_image, test_kernel)
 # test4 = m.opening(test_image, test_kernel)
 # test5 = m.limits(test_image, test_kernel)
-# cv2.imwrite(f'Images_output/{"0original_image_"+"test_image"}.jpg', test_image)
-# cv2.imwrite(f'Images_output/{"1dilation_image_"+"test_image"}.jpg', test1)
-# cv2.imwrite(f'Images_output/{"2erosion_image_"+"test_image"}.jpg', test2)
-# cv2.imwrite(f'Images_output/{"3closing_image_"+"test_image"}.jpg', test3)
-# cv2.imwrite(f'Images_output/{"4opening_image_"+"test_image"}.jpg', test4)
-# cv2.imwrite(f'Images_output/{"5limits_image_"+"test_image"}.jpg', test5)
+# cv2.imwrite(f'Images_output/{"0original_image_"+"test_image"}monky.jpg', test_image)
+# cv2.imwrite(f'Images_output/{"1dilation_image_"+"test_image"}monky.jpg', test1)
+# cv2.imwrite(f'Images_output/{"2erosion_image_"+"test_image"}monky.jpg', test2)
+# cv2.imwrite(f'Images_output/{"3closing_image_"+"test_image"}monky.jpg', test3)
+# cv2.imwrite(f'Images_output/{"4opening_image_"+"test_image"}monky.jpg', test4)
+# cv2.imwrite(f'Images_output/{"5limits_image_"+"test_image"}monky.jpg', test5)
 
 """Обработка изображения"""
 

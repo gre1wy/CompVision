@@ -1,14 +1,6 @@
 import numpy as np
-def shift_kernel_10right():
-    matrix = np.zeros((20, 20), dtype=np.float32)
-    matrix[4, 9] = 1
-    return matrix
-def shift_kernel_20down():
-    matrix = np.zeros((20, 20), dtype=np.float32)
-    matrix[19, 9] = 1
-    return matrix
 
-def Inversia():
+def inversia():
     return np.array([
         [0, 0, 0],
         [0, -1, 0],
@@ -21,7 +13,8 @@ def gaussian_kernel(size, sigma):
         (size, size)
     )
     return kernel / np.sum(kernel)
-gaussian_kernel_7x7 = gaussian_kernel(7, 0.8)
+gaussian_kernel_11x11 = gaussian_kernel(11, 1)
+
 
 def blur_move_diagonal():
     return (1/7)*np.array([
@@ -61,3 +54,10 @@ def relief():
         [-1, 1, 1,],
         [0, 1, 2,]
         ], dtype=np.float32)
+def my_kernel():
+    kernel = np.array([
+        [-1, -1, -1],
+        [0, 0, 0],
+        [1, 1, 1]
+        ], dtype=np.float32)
+    return kernel
