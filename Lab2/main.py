@@ -96,20 +96,11 @@ def download_one_kernel(img, img_name: str, kernel, kernel_name):
     cv2.imwrite(f'Images_output\convolved_image_{img_name}_{kernel_name}.jpg', result)
     print(f'end')
 
-def shift_10_right(img):
-    test_kernel = np.zeros((21, 21), dtype=int)
-    test_kernel[10, 0] = 1
-    result = filter(img, test_kernel)
-    return result
-
-def shift_20_bottom(img):
-    test_kernel = np.zeros((41, 41), dtype=int)
-    test_kernel[0, 20] = 1
-    result = filter(img, test_kernel)
-    return result
 
 def download_shift_image(img, img_name):
-    shifted_image = shift_10_right(shift_20_bottom(img))
+    move_20down_and_10right = np.zeros((41, 41))
+    move_20down_and_10right[0, 9] = 1
+    shifted_image = filter(img, move_20down_and_10right)
     cv2.imwrite(f'Images_output\shifted_image_{img_name}.jpg', shifted_image)
 
 
@@ -131,17 +122,13 @@ def download_shift_image(img, img_name):
 #                         [0,0,0],
 #                         [0,0,0]])
 
-# # Создаем массив 21x21, заполненный нулями
-# test_kernel = np.zeros((21, 21), dtype=int)
-# test_kernel[10,0] = 1
-# test_kernel = np.zeros((41, 41), dtype=int)
-# test_kernel[0,20] = 1
-# test_kernel = np.zeros((21, 41), dtype=int)
-# test_kernel[10,20] = 1
-# print(test_kernel)
+# Создаем массив 21x21, заполненный нулями
 
-
-# test_image_shift = shift_20_bottom(shift_10_right(test_image))
-# # test_image_shift = filter(test_image, test_kernel)
+# move_20down_and_10right = np.zeros((41, 41))
+# move_20down_and_10right[0, 9] = 1
+# print(move_20down_and_10right)
+#
+# # test_image_shift = shift_20_bottom(shift_10_right(test_image))
+# test_image_shift = filter(test_image, move_20down_and_10right)
 # cv2.imwrite(f'Images_output/test_image.jpg', test_image)
 # cv2.imwrite(f'Images_output/test_image_shift.jpg', test_image_shift)

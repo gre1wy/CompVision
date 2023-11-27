@@ -2,7 +2,7 @@ import main as m
 import cv2
 from kernels import my_kernel
 """ Сhoose image """
-img_name = 'Test1'
+img_name = ''
 image_read = cv2.imread(fr'images/{img_name}.jpg')
 image = m.bw_method(image_read)
 cv2.imwrite(f'Images_output/{img_name}_bw.jpg', image)
